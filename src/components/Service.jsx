@@ -1,13 +1,16 @@
-import DoorToDoor from "../assets/images/door-to-door.svg";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-const Service = () => {
+const Service = ({ item }) => {
   return (
-    <div className="space-y-3 sm:space-y-5">
-      <img src={DoorToDoor} className="w-36 sm:w-24" alt="document-storage" />
-      <div className="pb-2 space-y-1 sm:space-y-2">
-        <h4 className="text-md sm:text-lg font-bold">Door to Door Storage</h4>
-        <p className="text-sm sm:text-md">We pick up, store & deliver</p>
+    <div className="space-y-4 flex flex-col justify-between items-baseline sm:space-y-5">
+      <img
+        src={`https://static-landing-backend.skdhar.com/public/${item?.icon}`}
+        className="w-40 h-36 bg-fill sm:w-36 sm:h-42"
+        alt={item?.title}
+      />
+      <div className="pb-2 w-36 space-y-1 sm:space-y-2">
+        <h4 className="text-md sm:text-lg font-bold">{item?.title}</h4>
+        <p className="text-sm sm:text-md">{item.subtitle}</p>
       </div>
       <a
         href="#"
