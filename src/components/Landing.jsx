@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Service from "./Service";
 import axios from "axios";
+
+export const ItemContext = createContext();
 
 const Landing = () => {
   const [landingData, setLandingData] = useState([]);
@@ -26,7 +28,10 @@ const Landing = () => {
 
       <div className="spaces grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 md:gap-x-8 gap-y-16 sm:px-12 md:px-10 lg:px-14 pb-12">
         {landingData?.map((item) => (
-          <Service key={item.title} item={item} />
+          <ItemContext.Provider key={item} value={item}>
+            <Service />
+            {/* <Service key={item.title} item={item} /> */}
+          </ItemContext.Provider>
         ))}
       </div>
     </div>
